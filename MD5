@@ -1,10 +1,10 @@
-ebf0710dc1cbba1680547d0c33823fea *DESCRIPTION
+78d1509fa151861aa336d32137e83b80 *DESCRIPTION
 24becfaf2e4873b893449c16824454e9 *NAMESPACE
-44316cee6abe1b16c9e140ec86fc5375 *R/RcppExports.R
+10ddca7e27a92ab168581b0d9992433c *R/RcppExports.R
 f3ad9a7a829346aa7d9c1367ab6d4e87 *R/deepboost-data.R
 2828926119ae7a90723dbf2c0bcf0bd7 *R/deepboost-grid-search.R
 2322082036d318852b5ff3149aaf7254 *R/deepboost.R
-0055ed9f05daa6c73582f76744167f8e *README.md
+506e554e7dc0332b953c078d8a107009 *README.md
 0a33302f292f018df32f99d4e46f32f7 *data/adult.rda
 336498c23b50058fef3b149f4c18dca2 *data/australian.rda
 f5744e3f499cdf940689ad206d25a3cd *data/banana.rda
@@ -42,8 +42,8 @@ d8075e66885fa3367f55929e3b4a7198 *man/predict-Deepboost-method.Rd
 96fe274f42d3e3d4f7a8d0630176704a *man/sonar.Rd
 e572f05230b3ebbcde70deb17ab7ac09 *src/Makevars
 61de1c580eddcddfdaf5c2ad27d04f26 *src/Makevars.win
-c3c71f518ffaaa47fbc221eaa2934437 *src/RcppExports.cpp
-fcbf4a83c93f64e6b63ac0889a3847d0 *src/boost.cc
+16e3a68138ab60b56cf972f2c4bb7415 *src/RcppExports.cpp
+b9bb4b57a469a9459b530bd27aed58c1 *src/boost.cc
 7ac0fee3e4dd7dc4b9114a23565be6bd *src/boost.h
 629f553a354aaf53fe7848a7b36b59dd *src/deepboost_C.cc
 2563e2bfcd1c095cbc1a4a0d80b7b1ba *src/deepboost_C.h
