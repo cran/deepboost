@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // Train_R
 Rcpp::List Train_R(DataFrame data, int tree_depth, int num_iter, double beta, double lambda, char loss_type, bool verbose);
-RcppExport SEXP deepboost_Train_R(SEXP dataSEXP, SEXP tree_depthSEXP, SEXP num_iterSEXP, SEXP betaSEXP, SEXP lambdaSEXP, SEXP loss_typeSEXP, SEXP verboseSEXP) {
+RcppExport SEXP _deepboost_Train_R(SEXP dataSEXP, SEXP tree_depthSEXP, SEXP num_iterSEXP, SEXP betaSEXP, SEXP lambdaSEXP, SEXP loss_typeSEXP, SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -24,7 +24,7 @@ END_RCPP
 }
 // Predict_R
 Rcpp::List Predict_R(DataFrame newdata, Rcpp::List model);
-RcppExport SEXP deepboost_Predict_R(SEXP newdataSEXP, SEXP modelSEXP) {
+RcppExport SEXP _deepboost_Predict_R(SEXP newdataSEXP, SEXP modelSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -34,9 +34,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// PredictProbabilities_R
+Rcpp::List PredictProbabilities_R(DataFrame newdata, Rcpp::List model);
+RcppExport SEXP _deepboost_PredictProbabilities_R(SEXP newdataSEXP, SEXP modelSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< DataFrame >::type newdata(newdataSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type model(modelSEXP);
+    rcpp_result_gen = Rcpp::wrap(PredictProbabilities_R(newdata, model));
+    return rcpp_result_gen;
+END_RCPP
+}
 // Evaluate_R
 Rcpp::List Evaluate_R(DataFrame data, Rcpp::List model);
-RcppExport SEXP deepboost_Evaluate_R(SEXP dataSEXP, SEXP modelSEXP) {
+RcppExport SEXP _deepboost_Evaluate_R(SEXP dataSEXP, SEXP modelSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -45,4 +57,17 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(Evaluate_R(data, model));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_deepboost_Train_R", (DL_FUNC) &_deepboost_Train_R, 7},
+    {"_deepboost_Predict_R", (DL_FUNC) &_deepboost_Predict_R, 2},
+    {"_deepboost_PredictProbabilities_R", (DL_FUNC) &_deepboost_PredictProbabilities_R, 2},
+    {"_deepboost_Evaluate_R", (DL_FUNC) &_deepboost_Evaluate_R, 2},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_deepboost(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
